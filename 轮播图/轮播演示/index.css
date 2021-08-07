@@ -1,0 +1,81 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  overflow: hidden;
+  margin: 100px auto 0px;
+}
+
+.wrapper .sliderPage {
+  position: absolute;
+  width: 2000px;
+  height: 250px;
+  top: 0px;
+  left: 0px;
+}
+
+.wrapper .sliderPage li {
+  float: left;
+  width: 400px;
+  height: 250px;
+}
+
+.wrapper .sliderPage li img {
+  height: 100%;
+  width: 100%;
+}
+
+.wrapper .btn-left,
+.wrapper .btn-right {
+  position: absolute;
+  top: 50%;
+  margin-top: -20px;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+  line-height: 40px;
+  opacity: 0.1;
+  cursor: pointer;
+}
+
+.wrapper:hover .btn-left,
+.wrapper:hover .btn-right {
+  opacity: 0.7;
+}
+
+.wrapper .btn-left {
+  left: 15px;
+}
+
+.wrapper .btn-right {
+  right: 15px;
+}
+
+.wrapper .slider-index {
+  position: absolute;
+  width: 100%;
+  bottom: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.wrapper .slider-index span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.wrapper .slider-index .active {
+  background-color: #f40;
+}

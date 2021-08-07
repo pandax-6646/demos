@@ -1,0 +1,224 @@
+*{
+    padding: 0px;   
+    margin: 0px;
+    list-style: none;
+}
+
+:root,
+body{
+    height: 100%;
+    perspective: 500px;
+}
+
+
+
+/* 创建鼠标移入时的运动帧 */
+@keyframes in-top{
+    0%{
+        transform: translatez(0px) rotatex(0deg);
+    }
+    100%{
+        transform: translatez(0px) rotatex(-90deg);
+    }
+}
+@keyframes in-bottom{
+    0%{
+        transform: translatez(0px) rotatex(0deg);
+    }
+    100%{
+        transform: translatez(0px) rotatex(90deg);
+    }
+}
+@keyframes in-left{
+    0%{
+        transform: translatez(0px) rotatey(0deg);
+    }
+    100%{
+        transform: translatez(0px) rotatey(90deg);
+    }
+}
+@keyframes in-right{
+    0%{
+        transform: translatez(0px) rotatey(0deg);
+    }
+    100%{
+        transform: translatez(0px) rotatey(-90deg);
+    }
+}
+
+/* 创建鼠标移入时的运动帧 */
+@keyframes out-top{
+    0%{
+        transform: translatez(0px) rotatex(-90deg);
+    }
+    100%{
+        transform: translatez(0px) rotatex(0deg);
+    }
+}
+@keyframes out-bottom{
+    0%{
+        transform: translatez(0px) rotatex(90deg);
+    }
+    100%{
+        transform: translatez(0px) rotatex(0deg);
+    }
+}@keyframes out-left{
+    0%{
+        transform: translatez(0px) rotatey(90deg);
+    }
+    100%{
+        transform: translatez(0px) rotatey(0deg);
+    }
+}
+@keyframes out-right{
+    0%{
+        transform: translatez(0px) rotatey(-90deg);
+    }
+    100%{
+        transform: translatez(0px) rotatey(0deg);
+    }
+}
+
+
+
+.wrapper{
+    position: absolute;
+    width: 650px;
+    height: 540px;
+    left: calc(50% - 325px);
+    top: calc(50% - 270px);
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.wrapper ul{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.wrapper ul li{
+    height: 260px;
+    width: 196px;
+    perspective: 300px;
+}
+
+li .content{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+}
+
+/* 设置鼠标移入时的动画 */
+.in-top .content{
+    transform-origin: 50% 50% -130px;
+    animation: in-top .3s linear forwards ;
+}
+.in-right .content{
+    transform-origin: 50% 50% -96px;
+    animation: in-right .3s linear forwards;
+}
+.in-bottom .content{
+    transform-origin: 50% 50% -130px;
+    animation: in-bottom .3s linear forwards;
+}
+.in-left .content{
+    transform-origin: 50% 50% -96px;
+    animation: in-left .3s linear forwards;
+}
+
+
+/* 设置鼠标移出时的动画 */
+.out-top .content{
+    transform-origin: 50% 50% -130px;
+    animation: out-top .3s linear backwards;
+}
+.out-right .content{
+    transform-origin: 50% 50% -96px;
+    animation: out-right .3s linear backwards;
+}
+.out-bottom .content{
+    transform-origin: 50% 50% -130px;
+    animation: out-bottom .3s linear backwards;
+}
+.out-left .content{
+    transform-origin: 50% 50% -96px;
+    animation: out-left .3s linear backwards;
+}
+
+
+
+
+.content .bg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: translatez(-1px);
+    background-position: center;
+    background-size: cover;
+    
+}
+li:nth-of-type(1) .bg{
+    background-image:url('./img/hu.jpg');
+}
+li:nth-of-type(2) .bg{
+    background-image:url('./img/deng.jpg');
+
+}
+li:nth-of-type(3) .bg{
+    background-image:url('./img/wu.jpg');
+
+}
+li:nth-of-type(4) .bg{
+    background-image:url('./img/fan.jpg');
+
+}
+li:nth-of-type(5) .bg{
+    background-image:url('./img/liu.jpg');
+
+}
+li:nth-of-type(6) .bg{
+    background-image:url('./img/hua.jpg');
+
+}
+
+ul .content .name{
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 260px;
+    color: #fff;
+    font-size: 35px;
+    background-color: #000;
+    border: 1px solid transparent;
+
+}
+
+
+
+.in-left .bg,
+.out-left .bg{
+    transform-origin: right;
+    transform: translate3d(-100%, 0, 0) rotatey(-90deg);
+}
+.in-right .bg,
+.out-right .bg{
+    transform-origin: left;
+    transform: translate3d(100%, 0, 0) rotatey(90deg);
+}
+.in-top .bg,
+.out-top .bg{
+    transform-origin: bottom;
+    transform: translate3d(0, -100%, 0) rotatex(90deg);
+}
+.in-bottom .bg,
+.out-bottom .bg{
+    transform-origin: top;
+    transform: translate3d(0, 100%, 0) rotatex(-90deg);
+}

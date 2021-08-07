@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+            outline: none;
+        }
+
+        .wrapper {
+            height: 400px;
+            width: 540px;
+            position: relative;
+            left: 50%;
+            top: 100px;
+            margin-left: -270px;
+            border: 1px solid #999;
+            border-radius: 20px;
+        }
+        .wrapper h1{
+            width: 540px;
+            text-align: center;
+        }
+
+        .wrapper .search {
+            position: absolute;
+            width: 450px;
+            height: 30px;
+            left: 50%;
+            margin-left: -200px;
+        }
+
+        .wrapper input {
+            position: relative;
+            display: block;
+            float: left;
+            width: 350px;
+            height: 30px;
+            margin-top: 10px;
+            margin-left: 50px;
+            border-radius: 5px;
+            border: 1px solid #999;
+            padding-left: 15px;
+        }
+
+        .wrapper button {
+            float: left;
+            height: 30px;
+            width: 50px;
+            font-size: 15px;
+            margin-top: 10px;
+            margin-left: 40px;
+            font-family: '宋体';
+            border-radius: 5px;
+            outline: none;
+            color: #f5f5f5;
+            border: 1px solid #4e6ef2;
+            background-color: #4e6ef2;
+        }
+
+        .wrapper button:hover{
+            background-color: #4662D9;
+        }
+
+        .wrapper .box{
+            position: absolute;
+            width: 540px;
+            top: 100px;
+        }
+
+        .wrapper .box span{
+            display: inline-block;
+            height: 30px; 
+            width: 540px;
+        }
+
+        .wrapper .box .city{
+            height: 30px;
+            width: 100px;
+            line-height: 30px;
+            text-align: center;
+            color: blue;
+            font-size: 20px;
+        font-weight: 700
+        }
+
+        .wrapper .box .temper{
+            height: 30px;
+            width: 100px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .wrapper .box .text{
+            display:block;
+            height: 30px;
+            width: 540px;
+            position: relative;
+            top: 10px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .wrapper .box ul {
+            float: left;
+            margin-top: 25px;
+            margin-left: 5px;
+            height: 180px;
+            width: 85px;
+            border: 1px solid #999;
+            border-radius: 10px;
+        }
+
+        .wrapper .box ul:hover{
+            background-color: #b6dbeb;
+        }
+
+        .wrapper .box .today {
+            width: 160px;
+        }
+
+        .wrapper .box ul li{
+            width: 85px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .wrapper .box  li:hover{
+            color: blue;
+        }
+
+        .wrapper .box .today li {
+            width: 160px;
+        }
+        
+
+        
+    </style>
+</head>
+
+<body>
+    
+    <div class="wrapper">
+        <h1>全国天气查询</h1>
+        <input type="text" value='请输入城市、乡镇、街道、景点名称 查天气' style='color: #999'
+            onfocus='if(this.value=="请输入城市、乡镇、街道、景点名称 查天气"){this.value="";this.style.color="#424242"}'
+            onblur='if(this.value == ""){this.value = "请输入城市、乡镇、街道、景点名称 查天气";this.style.color="#999"}'>
+        <button>搜索</button>
+        <div class="box">
+            
+        </div>
+
+    </div>
+    <script>
+
+        var oScript = document.createElement('script');
+        var oInput = document.getElementsByTagName('input')[0];
+        var oButton = document.getElementsByTagName('button')[0];
+        var oBox = document.getElementsByClassName('box')[0];
+        
+        
+        var cityValue = '';
+
+        oInput.oninput = function () {
+            cityValue = this.value;
+        }
+
+        oButton.onclick = function () {
+            var flag = cityValue.split('').every(function (ele, index, self) {
+                return ele.charCodeAt() > 255
+            })
+            if (flag && cityValue) {
+
+                // 天气API接口
+                oScript.src = 'http://wthrcdn.etouch.cn/weather_mini?city=' + cityValue + '&callback=ds';
+                
+            } else {
+                alert('请输入中文城市地名！')
+            }
+        }
+        document.body.appendChild(oScript);
+        
+        function ds(data) {
+            
+            // 创建头部展示信息
+            var oHeadVal = document.createElement('head-val');
+            var str = '<span class="city">' + data.data.city + '</span><span class="temper">' + data.data.wendu + '℃ </span><span class="text">' + data.data.ganmao + '</span>'
+            oHeadVal.innerHTML = str;
+            
+            // 头部信息插入页面
+            oBox.appendChild(oHeadVal);
+            var forecast = data.data.forecast;
+            forecast.forEach(function (ele, index) {
+                var oUl = document.createElement('ul');
+                var str = '';
+                for (var prop in ele) {
+                    str += '<li>' + ele[prop] + '<li>';
+
+                    oUl.innerHTML = str;
+                }
+                oBox.appendChild(oUl); 
+                
+            })
+            var oToday = document.getElementsByTagName('ul')[0];
+            oToday.className = 'today';
+        }
+        
+    </script>
+</body>
+</html>

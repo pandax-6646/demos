@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+  <!-- 项目流程
+        1.需求分析
+            可根据输入框输入的名字和可点击的性别和年龄按钮将数据进行复合筛选和排序
+
+        2.样式布局B
+         -->
+
+
+
+  <!--      数组方法 
+            forEach
+            filter（纯函数）
+            sort
+
+
+        字符串方法
+            replace
+
+        事件
+            oninput
+            click
+
+
+        数据的复制
+            clone方法
+
+
+        正则匹配
+
+
+        前期往页面添加HTML最有效方法
+        更改行间样式的最有效方法 -->
+
+
+
+  <!-- 迭代优化 -->
+  <!-- 具体筛选功能分成不同的JS文件 -->
+
+  <script>
+    //          对象                   combineFilter               lasterFilter                       randerPage
+    // 筛选数据的方法函数----------->合并筛选方法的函数-------------->执行合并函数------------------->在页面中渲染这些数据
+    //                                                   即循环调用合并函数里所有筛选方法              |
+    //                                                             ^                                |
+    //                                                             |                                |
+    //                                                             |                                ↓
+    //                                                             |                            view(视图)<------------用户操作
+    //                                                             |                               |
+    //                                                             |                               |
+    //                                                             |                               |
+    //                                                             |                               |
+    //                                                             |                               ↓
+    //                                                             |                          描述产生的行为action
+    //                                                             |                               |
+    //                                                             |                               |
+    //                                                             |                               |
+    // stroe数据管理（对象)                                         |                               |
+    //     getStroe : 获取数据状态的方法                             |                               |
+    //                                                             |                               |
+    //     dispatch : {        <--------------------------------------------------------------------
+    //         改变state的value                                    ^
+    //         分发行为                                            |
+    //     }                                                      |
+    //             |                                              |
+    //             |                                              |
+    //             |                                              |
+    //             |                                              |
+    //             |                                              |
+    //             ↓                                              |  
+    //     subscribe : 订阅函数的方法-------------------------------
+  </script>
+
+
+  <div class="wrapper">
+    <input type="text">
+    <button class="active">All</button>
+    <button>Female</button>
+    <button>Male</button>
+    <button class="only">age</button>
+    <ul>
+      <!-- <li class="del">
+                <img src="./1.PNG" alt="">
+                <p class="name">王某某</p>
+                <p class="age">18</p>
+                <p class="say">迎娶白富美，走上人生巅峰</p>
+            </li>
+            <li class="del">
+                <img src="./1.PNG" alt="">
+                <p class="name">平头哥</p>
+                <p class="age">18</p>
+                <p class="say">不服就是干！！</p>
+            </li> -->
+    </ul>
+  </div>
+  <script src="./js/tools/tools.js"></script>
+  <script src="./js/tools/filter/filterArrByAge.js"></script>
+  <script src="./js/tools/filter/filterArrByText.js"></script>
+  <script src="./js/tools/filter/filterArrBySex.js"></script>
+  <script src="./js/tools/changeStyle/changeAgeStyle.js"></script>
+  <script src="./js/tools/changeStyle/changeSexStyle.js"></script>
+  <script src="./js/tools/combineFilter/combineFilter.js"></script>
+  <script src="./js/tools/createStore/createStore.js"></script>
+  <script src="./js/data/data.js"></script>
+  <script src="./js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

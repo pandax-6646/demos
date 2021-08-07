@@ -1,0 +1,87 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+.wrapper{
+    position: absolute;
+    width: 600px;
+    border: 1px solid rgb(230, 219, 219);
+    border-radius: 10px;
+    left: 50%;
+    margin-left: -250px;
+    padding: 10px;
+}
+.wrapper input{
+    position: relative;
+    height: 25px;
+    width: 280px;
+    padding-left: 10px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    outline: none;
+}
+.wrapper button{
+    float: right;
+    height: 25px;
+    width: 60px;
+    border-radius: 10px;
+    background-color: #ffff;
+    outline: none;
+    border: none;
+    margin-left: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 25px;
+    text-align: center;
+    color: blue;
+}
+.wrapper button.active{
+    color: #fff;
+    background-color: blue;
+}
+.wrapper button.age{
+    color: #fff;
+    background-color: red;
+}
+.wrapper ul li{
+    position: relative;
+    height: 70px;
+    width: 600px;
+    margin-top: 5px;
+    border: 1px solid #fff;
+    border-bottom: 2px solid rgb(239, 228, 228);
+}
+.wrapper ul li img{
+    display: block;
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
+    /*margin-left: 5px;*/
+
+}
+.wrapper ul li .name{
+    position: absolute;
+    height: 20px;
+    line-height: 20px;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 800;
+    left: 45px;
+    top: 5px;
+
+}
+.wrapper ul li .age{
+    position: absolute;
+    left: 140px;
+    top: 15px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.wrapper ul li .say{
+    position: absolute;
+    bottom: 10px;
+    left: 45px;
+    font-size: 14px;
+    color: rgb(97, 86, 86);
+}

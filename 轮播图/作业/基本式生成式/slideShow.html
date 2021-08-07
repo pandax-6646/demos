@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="css/轮播图.css">
+</head>
+<body>
+
+
+    <!-- 相当于两种定时器，setInterval用于单个图片的缓冲运动，另一个用于切图，当图片缓冲运动结束时，让
+    setTimeout 调用缓冲运动主函数-->
+    <div class="wrapper">
+        <ul class="top">
+            <li>
+                <img src="img/1.jpg" alt="">
+            </li>
+            <li >
+                <img src="img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/4.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/5.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/6.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/1.jpg" alt="">
+            </li>
+        </ul>
+
+        <span class="btn btn-left">&lt;</span>
+        <span class="btn btn-right">&gt;</span>
+        
+        <div>
+            <ul class="bottom">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src='js/move.js'></script>
+</body>
+</html>

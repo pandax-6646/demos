@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计算器（eval）</title>
+  <link rel="stylesheet" href="./styles/css/calculator.css">
+  <style>
+    #num1 {
+      height: 100px;
+      font-size: 30px;
+    }
+
+    h2 {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #btn li:last-child {
+      width: 160px;
+      background-color: blue;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>eval方式的计算器</h2>
+
+  <div class="wrap">
+    <input type="text" placeholder="请输入运算表达式" disabled id="num1">
+    <ul id="btn">
+      <li>C</li>
+      <li>+</li>
+      <li>-</li>
+      <li>*</li>
+      <li>X</li>
+      <li class="num">1</li>
+      <li class="num">2</li>
+      <li class="num">3</li>
+      <li class="num">4</li>
+      <li>/</li>
+      <li class="num">5</li>
+      <li class="num">6</li>
+      <li class="num">7</li>
+      <li class="num">8</li>
+      <li>%</li>
+      <li class="num">9</li>
+      <li class="num">0</li>
+      <li class="num">.</li>
+      <li>=</li>
+    </ul>
+  </div>
+  <script src="./js/calculator-eval.js"></script>
+</body>
+
+</html>

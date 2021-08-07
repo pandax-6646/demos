@@ -1,0 +1,71 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+html, body{
+  height: 100%;
+
+}
+.wrapper{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  background-color: #333;
+  color: #fff;
+}
+.wrapper .colon,
+.wrapper .nums{
+  transform: translateY(45%);
+  line-height: 86px;
+  transition: transform .3s;
+}
+.wrapper .colon{
+  line-height: 70px;
+}
+
+.wrapper .nums div,
+.wrapper .colon{
+  font-size: 86px;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 0 4px #fff;
+}
+.wrapper .nums .one{
+  color: pink;
+}
+.wrapper .nums .two{
+  font-size: 66px;
+  opacity: .8;
+}
+
+.wrapper .nums .three{
+  font-size: 46px;
+  opacity: .6;
+
+}
+
+
+.wrapper .nums .four{
+  font-size: 26px;
+  opacity: .4;
+
+}
+
+.wrapper .nums .five{
+  font-size: 6px;
+  opacity: .2;
+
+}
+
+.wrapper .nums .six{
+  font-size: 6px;
+  opacity: .2;
+
+}
+.wrapper .nums .seven{
+  font-size: 0px;
+  opacity: 0;
+
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+      text-decoration: none;
+    }
+
+    .wrapper {
+      margin: 0px auto;
+      top: 100px;
+      width: 1000px;
+    }
+
+    .wrapper input {
+      float: left;
+      display: block;
+      height: 44px;
+      width: 580px;
+      position: absolute;
+      left: 50%;
+      margin-left: -290px;
+      top: 100px;
+      outline: none;
+      font-size: 18px;
+      font-family: '宋体';
+      padding-left: 10px;
+      border: 1px solid blue;
+      border-radius: 10px;
+    }
+
+    .wrapper ul {
+      display: none;
+      position: absolute;
+      width: 590px;
+      border: 1px solid #aa9f9f;
+      left: 50%;
+      top: 155px;
+      margin-left: -290px;
+      border-radius: 10px;
+      overflow: hidden;
+
+    }
+
+    .wrapper ul li {
+      padding-left: 20px;
+      height: 25px;
+
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .wrapper ul li a:hover {
+      color: #4e71f2;
+    }
+
+    .wrapper ul li a {
+      display: block;
+      height: 25px;
+      width: 565px;
+      line-height: 25px;
+      font-size: 18px;
+      font-weight: 800;
+      margin: 5px;
+      font-family: '宋体';
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class='search'>
+      <input type="text">
+      <ul></ul>
+    </div>
+  </div>
+
+
+
+
+  <!--  前端向服务器发送数据请求（前端与用户交互得到的需求和处理该数据的回调函数）   -->
+
+  <!--  后端相应该请求（将该数据传入前端发送来的回调函数中）-->
+
+  <!-- 前端将处理好的数据渲染到页面中 -->
+
+  <script>
+    function debounce(handle, delay) {
+      var timer = null;
+      return function () {
+        var _self = this;
+        var _arg = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          handle.apply(_self, _arg);
+        }, delay)
+      }
+    }
+
+
+    var oInput = document.getElementsByTagName('input')[0];
+    var oUl = document.getElementsByTagName('ul')[0];
+    oUl.style.display = 'none';
+    oInput.oninput = debounce(function () {
+      var value = this.value;
+      var oScript = document.createElement('script'); //    doJson 为回调函数
+
+      //百度词条接口地址
+      oScript.src =
+        'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=32288,1455,32355,32328,31660,32046,32395,32115,32091,32524,32482&wd=' +
+        value + '&cb=doJson';
+      document.body.appendChild(oScript);
+
+    }, 500)
+
+    function doJson(data) {
+      var g = data.g;
+      var str = '';
+      if (g) {
+        g.forEach(function (index, ele, self) {
+          str += '<li><a href=https://baidu.com/s?wd=' + self[ele].q + '>' + self[ele].q + '</a></li>';
+          oUl.style.display = 'block';
+        })
+      } else {
+        oUl.style.display = 'none';
+      }
+
+      oUl.innerHTML = str;
+
+    }
+  </script>
+
+</body>
+
+</html>

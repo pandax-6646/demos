@@ -1,0 +1,92 @@
+* {
+  padding: 0rem;
+  margin: 0rem;
+  list-style: none;
+}
+html{
+  font-size: 25px;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ccc;
+  
+}
+
+
+.box {
+  position: relative;
+  height: 2rem;
+  width: 2rem;
+  
+}
+.box::after {
+  content: "";
+  position: absolute;
+  height: .32rem;
+  width: 2rem;
+  top: 3rem;
+  left: 0rem;
+  border-radius: 50%;
+  background-color: rgb(30, 30, 30);
+  opacity: .5;
+
+  animation: shadow .3s linear infinite;
+}
+
+
+.box::before {
+  content: "";
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  
+  background: url('./music.png') no-repeat;
+  background-size: 100% 100%;
+  border-radius: .2rem;
+  border: .08rem solid black;
+  box-sizing: border-box;
+
+  animation: jump .3s linear infinite;
+}
+
+
+
+
+
+
+
+@keyframes shadow{
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.2);
+  }
+
+  100%{
+    transform: scaleX(1);
+  }
+}
+
+
+@keyframes jump {
+  0% {
+    transform: translateY(0rem)
+  }
+  25% {
+    transform: translateY(.8rem)
+  }
+  50% {
+    transform: translateY(1.2rem) scale(1.2, .8)
+  }
+  75% {
+    transform: translateY(.8rem)
+  }
+  100% {
+    transform: translateY(0rem)
+  }
+}
+
