@@ -13,7 +13,7 @@
         />
       </header>
       <section class="main">
-        <input id="toggle-all" class="toggle-all" type="checkbox" v-model="isCheckedAll" />
+        <input id="toggle-all" class="toggle-all" type="checkbox" v-model="isCheckedAll" :disabled="!filterTodoListRef.length"/>
         <label for="toggle-all">Mark all as complete</label>
         <ul class="todo-list" :class="{isScroll: filterTodoListRef.length >= 6}">
           <li
